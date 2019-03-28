@@ -13,21 +13,21 @@ public class App
     int result = BinarySearch.C_NOT_FOUND;
     int searchVal = -999;
     
-    // ’Tõƒf[ƒ^‚Ì’è‹`
-    // ¦‘ÎÛƒf[ƒ^‚ÍƒNƒCƒbƒNƒ\[ƒg‚È‚Ç‚Å–‘O‚É¸‡‚É•À‚ñ‚Å‚¢‚é‘O’ñ
+    // æ¢ç´¢ãƒ‡ãƒ¼ã‚¿ã®å®šç¾©
+    // â€»å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ã¯ã‚¯ã‚¤ãƒƒã‚¯ã‚½ãƒ¼ãƒˆãªã©ã§äº‹å‰ã«æ˜‡é †ã«ä¸¦ã‚“ã§ã„ã‚‹å‰æ
     int[] searchData = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
     System.out.println("Binary Search App Start!");
     
-    // ŒŸõƒf[ƒ^‚Ìo—Í
+    // æ¤œç´¢ãƒ‡ãƒ¼ã‚¿ã®å‡ºåŠ›
     outputSearchData(
             searchData
             );
     
-    // ƒL[“ü—Íi”’l‚Æ‚µ‚Äj
+    // ã‚­ãƒ¼å…¥åŠ›ï¼ˆæ•°å€¤ã¨ã—ã¦ï¼‰
     searchVal = inputKeyValue();
 
-    // ’Tõi‚Æ‚è‚ ‚¦‚¸ŠJn‚Í‘S”ÍˆÍw’èj
+    // æ¢ç´¢ï¼ˆã¨ã‚Šã‚ãˆãšé–‹å§‹æ™‚ã¯å…¨ç¯„å›²æŒ‡å®šï¼‰
     result = binarySearch.execute(
                     searchData,
                     0,
@@ -35,7 +35,7 @@ public class App
                     searchVal
                     );
     
-    // Œ‹‰Ê‚Ìo—Í
+    // çµæœã®å‡ºåŠ›
     outputResult(
               result,
               BinarySearch.C_NOT_FOUND
@@ -43,7 +43,7 @@ public class App
   }
 
   /**
-   * ŒŸõƒf[ƒ^‚Ìo—Í
+   * æ¤œç´¢ãƒ‡ãƒ¼ã‚¿ã®å‡ºåŠ›
    * @param argSearchData
    * @return
    */
@@ -68,7 +68,7 @@ public class App
   }
   
   /**
-   *  ƒL[“ü—Íi”’l‚Æ‚µ‚Äj
+   *  ã‚­ãƒ¼å…¥åŠ›ï¼ˆæ•°å€¤ã¨ã—ã¦ï¼‰
    * @return
    */
   private static int inputKeyValue()
@@ -76,7 +76,7 @@ public class App
       String input = null;
       int number = 0;
 
-    System.out.println("What is the search value of array dataH");
+    System.out.println("What is the search value of array dataï¼Ÿ");
     
       try
       {
@@ -99,7 +99,7 @@ public class App
   }
   
   /**
-   *  Œ‹‰Ê‚Ìo—Í
+   *  çµæœã®å‡ºåŠ›
    * @param argResult
    * @param argNotFoundValue
    */
@@ -108,13 +108,13 @@ public class App
                 int argNotFoundValue
               )
   {
-    // ’TõŒ‹‰ÊNG
+    // æ¢ç´¢çµæœNG
     if(   argNotFoundValue == argResult
       )
     {
       System.out.println("Data Not Found.");
     }
-    // ’TõOK
+    // æ¢ç´¢OK
     else
     {
       System.out.println("Data Found. Array index is " + (argResult + 1) ); 

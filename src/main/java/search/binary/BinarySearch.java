@@ -1,40 +1,40 @@
 package search.binary;
 
 /*
-•½‹ÏŒvZ—ÊF O(log2n)
+å¹³å‡è¨ˆç®—é‡ï¼š O(log2n)
 
-”z—ñ‚ğƒ\[ƒg‚·‚é(¸‡‚Åƒ\[ƒg‚³‚ê‚Ä‚¢‚é‘O’ñ)
-”z—ñ‚Ì’†‰›‚É‚ ‚é—v‘f‚ğæ“¾
-’†‰›‚Ì—v‘f‚ª“¯ˆê‚Å‚Í‚È‚­A’l‚ª‘å‚«‚¢ê‡‚Í’†‰›‚©‚çˆÈ~‚Ì—v‘f‚©‚ç’T‚·
-’†‰›‚Ì—v‘f“¯ˆê‚Å‚Í‚È‚­A’l‚ª¬‚³‚¢ê‡‚Í’†‰›‚©‚çˆÈ‘O‚Ì—v‘f‚©‚ç’T‚·
-–Ú“I‚Ì—v‘f‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡‚ÍA’†‰›‚Ì—v‘f‚ğ’T‚·‚Æ‚±‚ë‚©‚ç‘±‚¯‚é
+é…åˆ—ã‚’ã‚½ãƒ¼ãƒˆã™ã‚‹(æ˜‡é †ã§ã‚½ãƒ¼ãƒˆã•ã‚Œã¦ã„ã‚‹å‰æ)
+é…åˆ—ã®ä¸­å¤®ã«ã‚ã‚‹è¦ç´ ã‚’å–å¾—
+ä¸­å¤®ã®è¦ç´ ãŒåŒä¸€ã§ã¯ãªãã€å€¤ãŒå¤§ãã„å ´åˆã¯ä¸­å¤®ã‹ã‚‰ä»¥é™ã®è¦ç´ ã‹ã‚‰æ¢ã™
+ä¸­å¤®ã®è¦ç´ åŒä¸€ã§ã¯ãªãã€å€¤ãŒå°ã•ã„å ´åˆã¯ä¸­å¤®ã‹ã‚‰ä»¥å‰ã®è¦ç´ ã‹ã‚‰æ¢ã™
+ç›®çš„ã®è¦ç´ ãŒè¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã¯ã€ä¸­å¤®ã®è¦ç´ ã‚’æ¢ã™ã¨ã“ã‚ã‹ã‚‰ç¶šã‘ã‚‹
 */
 
 public class BinarySearch
 {
-  // Singleton—p
+  // Singletonç”¨
   private static BinarySearch binarySearch = new BinarySearch(); 
   
-  // Œ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚Ì–ß‚è’l
+  // è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã®æˆ»ã‚Šå€¤
   public static int C_NOT_FOUND = -1;
   
-  // ŠO•”‚©‚çƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚È‚¢‚æ‚¤‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğprivate‰»
+  // å¤–éƒ¨ã‹ã‚‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ããªã„ã‚ˆã†ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’privateåŒ–
   private BinarySearch()
   { 
   }
   
-  // ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·
+  // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™
   public static BinarySearch getInstance()
   {
     return binarySearch;
   }
   
   /**
-   *  ’TõÀs
-   * @param argData       ’Tõƒf[ƒ^ŒQ
-   * @param argSearchIndexFrom  ’TõŠJnˆÊ’u
-   * @param argSearchIndexTo    ’TõI—¹ˆÊ’u
-   * @param argVal        –Ú“Iƒf[ƒ^
+   *  æ¢ç´¢å®Ÿè¡Œ
+   * @param argData       æ¢ç´¢ãƒ‡ãƒ¼ã‚¿ç¾¤
+   * @param argSearchIndexFrom  æ¢ç´¢é–‹å§‹ä½ç½®
+   * @param argSearchIndexTo    æ¢ç´¢çµ‚äº†ä½ç½®
+   * @param argVal        ç›®çš„ãƒ‡ãƒ¼ã‚¿
    * @return
    */
   public int execute(
@@ -50,24 +50,24 @@ public class BinarySearch
       &&  argSearchIndexFrom <= argSearchIndexTo
       )
     {
-      // ’†‰›‚ÌƒCƒ“ƒfƒbƒNƒX‚ğZo
+      // ä¸­å¤®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ç®—å‡º
       middleIndex = argSearchIndexFrom + ((argSearchIndexTo - argSearchIndexFrom) / 2);
 
-      // î•ñ‚ğƒƒO‚Éo—Í
+      // æƒ…å ±ã‚’ãƒ­ã‚°ã«å‡ºåŠ›
       System.out.println( "from : " + argSearchIndexFrom + " to : " + argSearchIndexTo + " middle : " + middleIndex + " val: " + argData[ middleIndex ] );
       
-      // ’†‰›‚ÌƒCƒ“ƒfƒbƒNƒX‚Ì’l‚ªˆê’v‚µ‚½ê‡‚ÍI—¹
+      // ä¸­å¤®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®å€¤ãŒä¸€è‡´ã—ãŸå ´åˆã¯çµ‚äº†
       if(   argData[ middleIndex ] == argVal
         )
       {
         return middleIndex;
       }
       
-      // –Ú“I‚Ì’l‚ª¬‚³‚¢ê‡
+      // ç›®çš„ã®å€¤ãŒå°ã•ã„å ´åˆ
       if(   argData[ middleIndex ] > argVal
         )
       {
-        // ‘O”¼‚Ì—v‘f‚©‚çÄ‹A’Tõ
+        // å‰åŠã®è¦ç´ ã‹ã‚‰å†å¸°æ¢ç´¢
         return this.execute(
                   argData,
                   argSearchIndexFrom,
@@ -77,7 +77,7 @@ public class BinarySearch
       }
       else
       {
-        // Œã”¼‚Ì—v‘f‚©‚çÄ‹A’Tõ
+        // å¾ŒåŠã®è¦ç´ ã‹ã‚‰å†å¸°æ¢ç´¢
         return this.execute(
                   argData,
                   middleIndex + 1,
